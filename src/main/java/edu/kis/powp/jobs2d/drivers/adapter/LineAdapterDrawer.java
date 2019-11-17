@@ -5,13 +5,13 @@ import edu.kis.legacy.drawer.shape.ILine;
 import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 
-public class LineDrawerAdapter implements Jobs2dDriver {
+public class LineAdapterDrawer implements Jobs2dDriver {
     private int drawX = 0;
     private int drawY = 0;
     private DrawPanelController controller;
 
 
-    public LineDrawerAdapter() {
+    public LineAdapterDrawer() {
         super();
         this.controller = DrawerFeature.getDrawerController();
     }
