@@ -9,7 +9,6 @@ import edu.kis.legacy.drawer.panel.DefaultDrawerFrame;
 import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.powp.appbase.Application;
 import edu.kis.powp.jobs2d.drivers.adapter.AdapterDrawer;
-import edu.kis.powp.jobs2d.drivers.adapter.Jobs2dDriver;
 import edu.kis.powp.jobs2d.drivers.adapter.LineAdapterDrawer;
 import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
 import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
@@ -45,11 +44,11 @@ public class TestJobs2dPatterns {
 		DriverFeature.addDriver("Logger Driver", loggerDriver);
 		DriverFeature.getDriverManager().setCurrentDriver(loggerDriver);
 
-		Job2dDriver testDriver = new AdapterDrawer();
+		AdapterDrawer testDriver = new AdapterDrawer();
 		DriverFeature.addDriver("Buggy Simulator", testDriver);
 
-		Jobs2dDriver testNewDriver = new LineAdapterDrawer();
-		DriverFeature.addDriver("SpecialLine", (Job2dDriver) testNewDriver);
+		Job2dDriver testSpecialLine = new LineAdapterDrawer();
+		DriverFeature.addDriver("SpecialLine", testSpecialLine);
 
 		DriverFeature.updateDriverInfo();
 	}
