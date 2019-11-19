@@ -1,6 +1,6 @@
 package edu.kis.powp.jobs2d.command;
 
-import edu.kis.powp.jobs2d.drivers.adapter.Job2dDriver;
+import edu.kis.powp.jobs2d.Job2dDriver;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,10 +9,6 @@ public class ComplexCommand implements DriverCommand{
 
     private List<DriverCommand> driverCommandList = new ArrayList();
 
-    public ComplexCommand(List<DriverCommand> driverCommands) {
-        this.driverCommandList = driverCommands;
-    }
-
     @Override
     public String toString() {
         return "ComplexCommand{" +
@@ -20,14 +16,14 @@ public class ComplexCommand implements DriverCommand{
                 '}';
     }
 
+
     @Override
-    public void execute(Job2dDriver dDriver) {
-        driverCommandList.forEach(driverCommand -> driverCommand.execute(dDriver));
+    public void addCommand(DriverCommand driverCommand) {
+        driverCommandList.add(driverCommand);
     }
 
     @Override
-    public void addCommand(DriverCommand command) {
-        driverCommandList.add(command);
+    public void execute(Job2dDriver driver) {
+        driverCommandList.forEach(driverCommand -> driverCommand.execute(driver));
     }
-
 }
